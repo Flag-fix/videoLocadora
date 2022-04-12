@@ -7,12 +7,15 @@
 using namespace std;
 #include <iostream>
 #include <cstdlib>
+#include <list>
 #include "menus/Alterar/Alterar.h"
 #include "menus/Deletar/Deletar.h"
 #include "menus/Visualizar/Visualizar.h"
+#include "/main.cpp"
 
 
 class MenuPrincipal {
+
 
 public:
 
@@ -36,13 +39,21 @@ public:
             scanf(" %c", &opcao);
             switch (opcao) {
                 case '1':
+                    system("cls");
                     Cadastrar::menuCadastro();
+                    break;
                 case '2':
+                    system("cls");
                     Alterar::menuAlterar();
+                    break;
                 case '3':
+                    system("cls");
                     Deletar::menuDeletar();
+                    break;
                 case '4':
+                    system("cls");
                     Visualizar::menuVisualizar();
+                    break;
                 case '5':
                     return opcao;
                 default:
