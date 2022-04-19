@@ -5,19 +5,33 @@
 #ifndef VIDEOLOCADORA_CLIENTE_H
 #define VIDEOLOCADORA_CLIENTE_H
 #include <iostream>
-#include <time.h>
+#include <list>
 
 class Cliente{
-public:
+private:
+    int id{};
     std::string nome{};
     int diaNascimento{};
     int mesNascimento{};
     int anoNascimento{};
     std::string sexo{};
 
+public:
+    explicit Cliente(int id)
+    {
+        this->id = id;
+    };
+
+    inline bool operator==(const Cliente &outro) const
+    {
+        return outro.id == this->id;
+    }
+
 
     static char opcoesMenuCliente();
     static Cliente cadastrarCliente();
+    static void alterarCliente(const std::list<Cliente>& list);
+    static void deletarCliente(std::list<Cliente>& list);
     static void visualizarCliente(const std::list<Cliente>& list);
 };
 

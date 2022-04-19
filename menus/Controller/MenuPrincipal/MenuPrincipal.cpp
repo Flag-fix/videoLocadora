@@ -5,7 +5,7 @@
 #include "MenuPrincipal.h"
 #include <iostream>
 #include "menus/Controller/MenuOpcoes/MenuOpcoes.h"
-#include "menus/Model/Cliente/Cliente.h"
+#include "menus/Model/Cliente/Cliente.cpp"
 
 
 char MenuPrincipal::opcoes() {

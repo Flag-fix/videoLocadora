@@ -9,13 +9,56 @@
 #include <map>
 #include <windows.h>
 #include <memory>
+#include <algorithm>
 
 extern std::map<std::string, std::unique_ptr<Cliente>> batata;
+
+char Cliente::opcoesMenuCliente() {
+    std::list<Cliente> Listaclientes;
+    char opcao;
+    int valido = 0;
+    while (valido == 0){
+        scanf(" %c", &opcao);
+        fflush(stdin);
+        switch (opcao) {
+            case '1':{
+                Cliente cli = cadastrarCliente();
+                Listaclientes.push_back(cli);
+                std::cout << "Cliente Cadastrado"<<std::endl;
+                system("cls");
+                MenuDefault::menuGenericOpcoes("Clientes");
+                break;
+            }
+            case '2':{
+                alterarCliente(Listaclientes);
+                std::cout << "Cliente Alterado"<<std::endl;
+                system("cls");
+                MenuDefault::menuGenericOpcoes("Clientes");
+                break;
+            }
+            case '3':{
+                deletarCliente(Listaclientes);
+                std::cout << "Cliente Apagado"<<std::endl;
+                system("cls");
+                MenuDefault::menuGenericOpcoes("Clientes");
+                break;
+            }
+            case '4':{
+                std::cout << "Saindo ..."<<std::endl;
+                return opcao;
+            }
+            default:{
+                cout << "Opcao Invalida !!!! \n\n";
+                MenuDefault::menuPrincipal();
+            }
+        }
+    }
+}
 
 Cliente Cliente::cadastrarCliente() {
     SYSTEMTIME str_t;
     GetSystemTime(&str_t);
-    Cliente cli;
+    Cliente cli = Cliente(1);
     do {
         std::cout << "Digite Nome do Cliente"<<std::endl;
         std::cin>>cli.nome;
@@ -50,30 +93,32 @@ void Cliente::visualizarCliente(const std::list<Cliente>& list) {
     }
 }
 
-char Cliente::opcoesMenuCliente() {
-    std::list<Cliente> Listaclientes;
-    char opcao;
-    int valido = 0;
-    while (valido == 0){
-        scanf(" %c", &opcao);
-        fflush(stdin);
-        switch (opcao) {
-            case '1':
-                system("cls");
-                Cliente cli = cadastrarCliente();
-                Listaclientes.push_back(cli);
-                break;
-//            case '2':
-//                system("cls");
-//                break;
-//            case '3':
-//                system("cls");
-//                break;
-//            case '4':
-//                return opcao;
-//            default:
-//                cout << "Opcao Invalida !!!! \n\n";
-//                MenuDefault::menuPrincipal();
+void Cliente::deletarCliente(std::list<Cliente>& list) {
+    visualizarCliente(list);
+    int id;
+    std::cout << "Informe o Nome do Cliente que deseja Apagar"<<std::endl;
+    std::cin>>id;
+    list.erase(std::remove(list.begin(),list.end(), Cliente(id)));
+}
+
+void Cliente::alterarCliente(const std::list<Cliente>& list) {
+    visualizarCliente(list);
+    std::string nomeCLiente;
+    std::cout << "Informe o Nome do Cliente que deseja alterar"<<std::endl;
+    for (const auto & itemLista : list)
+    {
+        if(itemLista.nome == nomeCLiente){
+            Cliente cli;
+                std::cout << "Digite Nome do Cliente"<<std::endl;
+                std::cin>>itemLista.nome;
+                std::cout << "Digite dia Nascimento"<<std::endl;
+                std::cin>>itemLista.diaNascimento;
+                std::cout << "Digite mês Nascimento"<<std::endl;
+                std::cin>>itemLista.mesNascimento;
+                std::cout << "Digite ano Nascimento"<<std::endl;
+                std::cin>>itemLista.anoNascimento;
+                std::cout << "Digite o Sexo - F ou M"<<std::endl;
+                std::cin>>itemLista.sexo;
         }
     }
 }
