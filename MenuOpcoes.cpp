@@ -28,3 +28,4 @@ void MenuDefault::menuGenericOpcoes(const string& nomeTipoMenu) {
     cout <<"\t--------------------------------------\n";
     cout <<"\t**************************************\n "<< std::endl;
 }
+

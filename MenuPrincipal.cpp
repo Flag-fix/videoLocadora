@@ -4,8 +4,8 @@
 
 #include "MenuPrincipal.h"
 #include <iostream>
-#include "menus/Controller/MenuOpcoes/MenuOpcoes.h"
-#include "menus/Model/Cliente/Cliente.cpp"
+#include "MenuOpcoes.h"
+#include "Cliente.h"
 
 
 char MenuPrincipal::opcoes() {

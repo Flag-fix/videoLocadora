@@ -9,12 +9,12 @@
 
 class Cliente{
 private:
-    int id{};
-    std::string nome{};
-    int diaNascimento{};
-    int mesNascimento{};
-    int anoNascimento{};
-    std::string sexo{};
+    int id;
+    std::string nome;
+    int diaNascimento;
+    int mesNascimento;
+    int anoNascimento;
+    std::string sexo;
 
 public:
     explicit Cliente(int id)
@@ -30,10 +30,13 @@ public:
 
     static char opcoesMenuCliente();
     static Cliente cadastrarCliente();
-    static void alterarCliente(const std::list<Cliente>& list);
-    static void deletarCliente(std::list<Cliente>& list);
-    static void visualizarCliente(const std::list<Cliente>& list);
+    static void alterarCliente();
+    static void deletarCliente();
+    static void visualizarCliente();
 };
+
+extern std::list<Cliente> listaClientes;
+
 
 
 #endif //VIDEOLOCADORA_CLIENTE_H
