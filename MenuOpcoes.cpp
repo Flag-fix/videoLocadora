@@ -8,8 +8,8 @@ void MenuDefault::menuPrincipal() {
     cout <<"\n\t************************************** \n";
     cout <<"\t***  Selecionar uma Opcao do Menu: ***\n";
     cout <<"\t--------------------------------------\n";
-    cout <<"\t*********    1 - Clientes    ********\n";
-    cout <<"\t*********    2 - Filmes      ********\n";
+    cout <<"\t*********    1 - Clientes     ********\n";
+    cout <<"\t*********    2 - Filmes       ********\n";
     cout <<"\t*********    3 - Locados      ********\n";
     cout <<"\t*********    5 - Sair         ********\n";
     cout <<"\t--------------------------------------\n";
