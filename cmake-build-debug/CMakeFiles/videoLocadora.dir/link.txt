@@ -1,0 +1,3 @@
+"F:\Programas\Clio\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\videoLocadora.dir/objects.a
+"F:\Programas\Clio\CLion 2021.3.4\bin\mingw\bin\ar.exe" qc CMakeFiles\videoLocadora.dir/objects.a @CMakeFiles\videoLocadora.dir\objects1.rsp
+"F:\Programas\Clio\CLion 2021.3.4\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\videoLocadora.dir/objects.a -Wl,--no-whole-archive -o videoLocadora.exe -Wl,--out-implib,libvideoLocadora.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\videoLocadora.dir\linklibs.rsp
