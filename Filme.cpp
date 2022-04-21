@@ -83,7 +83,7 @@ void Filme::visualizarFilme() {
         std::cout << "Titulo: " << itemLista.titulo << std::endl;
         std::cout << "Genero: " << itemLista.genero << std::endl;
         std::cout << "Valor de Locacao R$ " << itemLista.valorLocacao << std::endl;
-        std::cout << "Filme esta Locado? " << itemLista.filmeLocado << "\n" << std::endl;
+        std::cout << "Filme esta Locado? " << std::boolalpha << itemLista.filmeLocado << "\n" << std::endl;
     }
 }
 
