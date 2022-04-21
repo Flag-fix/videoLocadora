@@ -11,7 +11,6 @@
 #include "MenuOpcoes.h"
 
 char Cliente::opcoesMenuCliente() {
-    std::list<Cliente> Listaclientes;
     char opcao;
     while (true) {
         scanf(" %c", &opcao);
@@ -19,7 +18,7 @@ char Cliente::opcoesMenuCliente() {
         switch (opcao) {
             case '1': {
                 Cliente cli = cadastrarCliente();
-                Listaclientes.push_back(cli);
+                listaClientes.push_back(cli);
                 std::cout << "Cliente Cadastrado" << std::endl;
                 system("cls");
                 MenuDefault::menuGenericOpcoes("Clientes");
@@ -60,54 +59,57 @@ char Cliente::opcoesMenuCliente() {
 Cliente Cliente::cadastrarCliente() {
     SYSTEMTIME str_t;
     GetSystemTime(&str_t);
-    Cliente cli1 = Cliente(1);
-    Cliente cli(1);
+    Cliente cliente(listaClientes.size() + 1);
     do {
         std::cout << "Digite Nome do Cliente" << std::endl;
-        std::cin >> cli.nome;
-    } while (cli.nome.length() <= 3);
+        std::cin >> cliente.nome;
+    } while (cliente.nome.length() <= 3);
     do {
         std::cout << "Digite dia Nascimento" << std::endl;
-        std::cin >> cli.diaNascimento;
-    } while (cli.diaNascimento <= 0 || cli.diaNascimento > 31);
+        std::cin >> cliente.diaNascimento;
+    } while (cliente.diaNascimento <= 0 || cliente.diaNascimento > 31);
     do {
         std::cout << "Digite mes Nascimento" << std::endl;
-        std::cin >> cli.mesNascimento;
-    } while (cli.mesNascimento <= 0 || cli.mesNascimento > 12);
+        std::cin >> cliente.mesNascimento;
+    } while (cliente.mesNascimento <= 0 || cliente.mesNascimento > 12);
     do {
         std::cout << "Digite ano Nascimento" << std::endl;
-        std::cin >> cli.anoNascimento;
-    } while (cli.anoNascimento < 1900 || cli.anoNascimento > str_t.wYear);
+        std::cin >> cliente.anoNascimento;
+    } while (cliente.anoNascimento < 1900 || cliente.anoNascimento > str_t.wYear);
     do {
         std::cout << "Digite o Sexo - F ou M" << std::endl;
-        std::cin >> cli.sexo;
-    } while (cli.sexo.length() >= 2);
+        std::cin >> cliente.sexo;
+    } while (cliente.sexo.length() >= 2);
 
-    return cli;
+    return cliente;
 }
 
 void Cliente::visualizarCliente() {
     std::cout << "Lista de Clientes\n" << std::endl;
     for (auto &itemLista: listaClientes) {
+        std::cout << "Id " << itemLista.id << std::endl;
         std::cout << "Nome: " << itemLista.nome << std::endl;
         std::cout << "Data de Nascimento: " << itemLista.diaNascimento << "/" << itemLista.mesNascimento << "/"
                   << itemLista.anoNascimento << std::endl;
-        std::cout << "Sexo: " << itemLista.sexo << std::endl;
+        std::cout << "Sexo: " << itemLista.sexo << "\n" << std::endl;
     }
 }
 
 void Cliente::deletarCliente() {
     visualizarCliente();
     int id;
-    std::cout << "Informe o Nome do Cliente que deseja Apagar" << std::endl;
+    std::cout << "Informe o id do Cliente que deseja Apagar" << std::endl;
     std::cin >> id;
     listaClientes.erase(std::remove(listaClientes.begin(), listaClientes.end(), Cliente(id)));
 }
 
 void Cliente::alterarCliente() {
     visualizarCliente();
-    std::string nomeCLiente;
+    string nomeCLiente;
+
     std::cout << "Informe o Nome do Cliente que deseja alterar" << std::endl;
+    cin >> nomeCLiente;
+
     for (auto &itemLista: listaClientes) {
         if (itemLista.nome == nomeCLiente) {
             std::cout << "Digite Nome do Cliente" << std::endl;
