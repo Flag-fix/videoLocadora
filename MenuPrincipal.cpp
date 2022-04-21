@@ -6,12 +6,12 @@
 #include <iostream>
 #include "MenuOpcoes.h"
 #include "Cliente.h"
+#include "Filme.h"
 
 
 char MenuPrincipal::opcoes() {
     char opcao;
-    int valido = 0;
-    while (valido == 0){
+    while (true){
         scanf(" %c", &opcao);
         fflush(stdin);
         switch (opcao) {
@@ -23,6 +23,7 @@ char MenuPrincipal::opcoes() {
             case '2':
                 system("cls");
                 MenuDefault::menuGenericOpcoes("Filmes");
+                opcao = Filme::opcoesMenuFilme();
                 break;
             case '3':
                 system("cls");

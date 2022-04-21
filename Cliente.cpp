@@ -65,6 +65,10 @@ Cliente Cliente::cadastrarCliente() {
         std::cin >> cliente.nome;
     } while (cliente.nome.length() <= 3);
     do {
+        std::cout << "Digite Idade do Cliente" << std::endl;
+        std::cin >> cliente.idade;
+    } while (cliente.nome.length() <= 0);
+    do {
         std::cout << "Digite dia Nascimento" << std::endl;
         std::cin >> cliente.diaNascimento;
     } while (cliente.diaNascimento <= 0 || cliente.diaNascimento > 31);
@@ -89,6 +93,7 @@ void Cliente::visualizarCliente() {
     for (auto &itemLista: listaClientes) {
         std::cout << "Id " << itemLista.id << std::endl;
         std::cout << "Nome: " << itemLista.nome << std::endl;
+        std::cout << "Idade: " << itemLista.idade << std::endl;
         std::cout << "Data de Nascimento: " << itemLista.diaNascimento << "/" << itemLista.mesNascimento << "/"
                   << itemLista.anoNascimento << std::endl;
         std::cout << "Sexo: " << itemLista.sexo << "\n" << std::endl;
@@ -114,6 +119,8 @@ void Cliente::alterarCliente() {
         if (itemLista.nome == nomeCLiente) {
             std::cout << "Digite Nome do Cliente" << std::endl;
             std::cin >> itemLista.nome;
+            std::cout << "Digite Idade do Cliente" << std::endl;
+            std::cin >> itemLista.idade;
             std::cout << "Digite dia Nascimento" << std::endl;
             std::cin >> itemLista.diaNascimento;
             std::cout << "Digite mês Nascimento" << std::endl;

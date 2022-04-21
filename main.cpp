@@ -5,10 +5,12 @@
 #include <iostream>
 #include <list>
 #include "Cliente.h"
+#include "Filme.h"
 #include "MenuPrincipal.h"
 #include "MenuOpcoes.h"
 
 std::list<Cliente> listaClientes;
+std::list<Filme> listaFilmes;
 
 int main() {
     char op;

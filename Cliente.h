@@ -11,6 +11,7 @@ class Cliente{
 private:
     int id;
     std::string nome;
+    int idade;
     int diaNascimento;
     int mesNascimento;
     int anoNascimento;
