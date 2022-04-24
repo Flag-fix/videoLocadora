@@ -135,3 +135,24 @@ void Cliente::alterarCliente() {
     }
 }
 
+Cliente *Cliente::getClienteById() {
+    int id;
+    std::cout << "Selecione o Id do Cliente: " << std::endl;
+    std::cin >> id;
+
+    return getClienteById(id);
+}
+
+Cliente *Cliente::getClienteById(int id) {
+    std::list<Cliente>::iterator it;
+    it = std::find(listaClientes.begin(), listaClientes.end(), Cliente(id));
+    if (it != listaClientes.end())
+        return &*it;
+    else
+        throw std::invalid_argument( "Cliente não encontrado." );
+}
+
+std::string Cliente::getNomeCliente() {
+    return nome;
+}
+

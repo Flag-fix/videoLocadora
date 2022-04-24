@@ -29,3 +29,16 @@ void MenuDefault::menuGenericOpcoes(const string& nomeTipoMenu) {
     cout <<"\t**************************************\n "<< std::endl;
 }
 
+void MenuDefault::menuLocado() {
+    cout <<"\n\t********************************************\n";
+    cout <<"\t*********     Menu Locado:           *********\n";
+    cout <<"\t----------------------------------------------\n";
+    cout <<"\t*********    1 - Cadastrar Locado       ******\n";
+    cout <<"\t*********    2 - Devolver Locado        ******\n";
+    cout <<"\t*********    3 - Visualizar Nao Locado  ******\n";
+    cout <<"\t*********    4 - Visualizar Locado      ******\n";
+    cout <<"\t*********    5 - Mostrar Faturamento    ******\n";
+    cout <<"\t*********    6 - Voltar                 ******\n";
+    cout <<"\t----------------------------------------------\n";
+    cout <<"\t**********************************************\n "<< std::endl;
+}

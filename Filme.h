@@ -14,25 +14,31 @@ private:
     std::string genero;
     double valorLocacao;
     bool filmeLocado = false;
-    int clietneId;
 
 public:
     explicit Filme(int id)
     {
         this->id = id;
-    };
+    }
+
+    explicit Filme() {};
 
     inline bool operator==(const Filme &outro) const
     {
         return outro.id == this->id;
     }
 
-
+    std::string getTitulo();
+    double getValorLocacao();
+    bool getLocadoStatus();
+    void changeLocadoStatus();
     static char opcoesMenuFilme();
     static Filme cadastrarFilme();
     static void alterarFilme();
     static void deletarFilme();
     static void visualizarFilme();
+    static Filme *getFilmeById();
+    static Filme *getFilmeById(int id);
 };
 
 extern std::list<Filme> listaFilmes;

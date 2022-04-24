@@ -7,7 +7,7 @@
 #include "MenuOpcoes.h"
 #include "Cliente.h"
 #include "Filme.h"
-
+#include "Locado.h"
 
 char MenuPrincipal::opcoes() {
     char opcao;
@@ -27,7 +27,8 @@ char MenuPrincipal::opcoes() {
                 break;
             case '3':
                 system("cls");
-                MenuDefault::menuGenericOpcoes("Locados");
+                MenuDefault::menuLocado();
+                opcao = Locado::opcoesMenuLocado();
                 break;
             case '4':
                 return opcao;

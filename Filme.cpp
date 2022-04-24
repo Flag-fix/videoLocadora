@@ -116,3 +116,35 @@ void Filme::alterarFilme() {
     }
 }
 
+Filme *Filme::getFilmeById() {
+    int id;
+    std::cout << "Selecione o Id do Filme: " << std::endl;
+    std::cin >> id;
+
+    return getFilmeById(id);
+}
+
+Filme *Filme::getFilmeById(int id) {
+    std::list<Filme>::iterator it;
+    it = std::find(listaFilmes.begin(), listaFilmes.end(), Filme(id));
+    if (it != listaFilmes.end())
+        return &*it;
+    else
+        throw std::invalid_argument( "Filme não encontrado." );
+}
+
+void Filme::changeLocadoStatus() {
+    filmeLocado = !filmeLocado;
+}
+
+bool Filme::getLocadoStatus() {
+    return filmeLocado;
+}
+
+std::string Filme::getTitulo() {
+    return titulo;
+}
+
+double Filme::getValorLocacao() {
+    return valorLocacao;
+}

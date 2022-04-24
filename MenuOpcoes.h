@@ -7,13 +7,12 @@
 using namespace std;
 #include <iostream>
 
-
 class MenuDefault {
 
 public:
     static void menuPrincipal();
     static void menuGenericOpcoes(const string& nomeTipoMenu);
+    static void menuLocado();
 };
-
 
 #endif //VIDEOLOCADORA_MENUDEFAULT_H

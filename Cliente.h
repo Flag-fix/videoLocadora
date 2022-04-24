@@ -21,24 +21,26 @@ public:
     explicit Cliente(int id)
     {
         this->id = id;
-    };
+    }
+
+    explicit Cliente() {};
 
     inline bool operator==(const Cliente &outro) const
     {
         return outro.id == this->id;
     }
 
-
+    std::string getNomeCliente();
     static char opcoesMenuCliente();
     static Cliente cadastrarCliente();
     static void alterarCliente();
     static void deletarCliente();
     static void visualizarCliente();
+    static Cliente *getClienteById();
+    static Cliente *getClienteById(int id);
 };
 
 extern std::list<Cliente> listaClientes;
 extern int idCount;
-
-
 
 #endif //VIDEOLOCADORA_CLIENTE_H
