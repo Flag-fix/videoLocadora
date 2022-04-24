@@ -37,6 +37,7 @@ public:
 };
 
 extern std::list<Cliente> listaClientes;
+extern int idCount;
 
 
 

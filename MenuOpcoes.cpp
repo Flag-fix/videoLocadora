@@ -11,7 +11,7 @@ void MenuDefault::menuPrincipal() {
     cout <<"\t*********    1 - Clientes     ********\n";
     cout <<"\t*********    2 - Filmes       ********\n";
     cout <<"\t*********    3 - Locados      ********\n";
-    cout <<"\t*********    5 - Sair         ********\n";
+    cout <<"\t*********    4 - Sair         ********\n";
     cout <<"\t--------------------------------------\n";
     cout <<"\t**************************************\n"<< std::endl;
 }
@@ -24,7 +24,7 @@ void MenuDefault::menuGenericOpcoes(const string& nomeTipoMenu) {
     cout <<"\t*********    2 - Alterar "+nomeTipoMenu+"   ******\n";
     cout <<"\t*********    3 - Deletar  "+nomeTipoMenu+"  ******\n";
     cout <<"\t*********    4 - Visualizar "+nomeTipoMenu+" *****\n";
-    cout <<"\t*********    5 - Sair            ******\n";
+    cout <<"\t*********    5 - Voltar             ******\n";
     cout <<"\t--------------------------------------\n";
     cout <<"\t**************************************\n "<< std::endl;
 }

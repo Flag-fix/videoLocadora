@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <list>
 #include <windows.h>
 #include <memory>
 #include <algorithm>
@@ -45,12 +44,13 @@ char Cliente::opcoesMenuCliente() {
                 break;
             }
             case '5': {
-                std::cout << "Saindo ..." << std::endl;
+                std::cout << "Voltando ..." << std::endl;
+                MenuDefault::menuPrincipal();
                 return opcao;
             }
             default: {
-                cout << "Opcao Invalida !!!! \n\n";
-                MenuDefault::menuPrincipal();
+                std::cout << "Opcao Invalida !!!! \n\n";
+                MenuDefault::menuGenericOpcoes("Clientes");
             }
         }
     }
@@ -59,7 +59,7 @@ char Cliente::opcoesMenuCliente() {
 Cliente Cliente::cadastrarCliente() {
     SYSTEMTIME str_t;
     GetSystemTime(&str_t);
-    Cliente cliente(listaClientes.size() + 1);
+    Cliente cliente(idCount);
     do {
         std::cout << "Digite Nome do Cliente" << std::endl;
         std::cin >> cliente.nome;
@@ -85,13 +85,15 @@ Cliente Cliente::cadastrarCliente() {
         std::cin >> cliente.sexo;
     } while (cliente.sexo.length() >= 2);
 
+    idCount++;
+
     return cliente;
 }
 
 void Cliente::visualizarCliente() {
     std::cout << "Lista de Clientes\n" << std::endl;
     for (auto &itemLista: listaClientes) {
-        std::cout << "Id " << itemLista.id << std::endl;
+        std::cout << "Id: " << itemLista.id << std::endl;
         std::cout << "Nome: " << itemLista.nome << std::endl;
         std::cout << "Idade: " << itemLista.idade << std::endl;
         std::cout << "Data de Nascimento: " << itemLista.diaNascimento << "/" << itemLista.mesNascimento << "/"
@@ -110,13 +112,13 @@ void Cliente::deletarCliente() {
 
 void Cliente::alterarCliente() {
     visualizarCliente();
-    string nomeCLiente;
+    int id;
 
-    std::cout << "Informe o Nome do Cliente que deseja alterar" << std::endl;
-    cin >> nomeCLiente;
+    std::cout << "Informe o Id do Cliente que deseja alterar" << std::endl;
+    cin >> id;
 
     for (auto &itemLista: listaClientes) {
-        if (itemLista.nome == nomeCLiente) {
+        if (itemLista.id == id) {
             std::cout << "Digite Nome do Cliente" << std::endl;
             std::cin >> itemLista.nome;
             std::cout << "Digite Idade do Cliente" << std::endl;

@@ -11,6 +11,7 @@
 
 std::list<Cliente> listaClientes;
 std::list<Filme> listaFilmes;
+int idCount = 1;
 
 int main() {
     char op;

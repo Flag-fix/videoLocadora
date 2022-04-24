@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <list>
 #include <windows.h>
 #include <memory>
 #include <algorithm>
@@ -45,12 +44,13 @@ char Filme::opcoesMenuFilme() {
                 break;
             }
             case '5': {
-                std::cout << "Saindo ..." << std::endl;
+                std::cout << "Voltando ..." << std::endl;
+                MenuDefault::menuPrincipal();
                 return opcao;
             }
             default: {
-                cout << "Opcao Invalida !!!! \n\n";
-                MenuDefault::menuPrincipal();
+                std::cout << "Opcao Invalida !!!! \n\n";
+                MenuDefault::menuGenericOpcoes("Filmes");
             }
         }
     }
@@ -59,27 +59,29 @@ char Filme::opcoesMenuFilme() {
 Filme Filme::cadastrarFilme() {
     SYSTEMTIME str_t;
     GetSystemTime(&str_t);
-    Filme Filme(listaFilmes.size() + 1);
+    Filme filme(idCount);
     do {
         std::cout << "Digite Titulo do Filme" << std::endl;
-        std::cin >> Filme.titulo;
-    } while (Filme.titulo.length() <= 3);
+        std::cin >> filme.titulo;
+    } while (filme.titulo.length() <= 3);
     do {
         std::cout << "Digite Genero do Filme" << std::endl;
-        std::cin >> Filme.genero;
-    } while (Filme.genero.length() <= 0);
+        std::cin >> filme.genero;
+    } while (filme.genero.length() <= 0);
     do {
         std::cout << "Digite Valor para Locacao" << std::endl;
-        std::cin >> Filme.valorLocacao;
-    } while (Filme.valorLocacao <= 0);
+        std::cin >> filme.valorLocacao;
+    } while (filme.valorLocacao <= 0);
 
-    return Filme;
+    idCount++;
+
+    return filme;
 }
 
 void Filme::visualizarFilme() {
     std::cout << "Lista de Filmes\n" << std::endl;
     for (auto &itemLista: listaFilmes) {
-        std::cout << "Id " << itemLista.id << std::endl;
+        std::cout << "Id: " << itemLista.id << std::endl;
         std::cout << "Titulo: " << itemLista.titulo << std::endl;
         std::cout << "Genero: " << itemLista.genero << std::endl;
         std::cout << "Valor de Locacao R$ " << itemLista.valorLocacao << std::endl;
@@ -90,20 +92,20 @@ void Filme::visualizarFilme() {
 void Filme::deletarFilme() {
     visualizarFilme();
     int id;
-    std::cout << "Informe o id do Filme que deseja Apagar" << std::endl;
+    std::cout << "Informe o Id do Filme que deseja Apagar" << std::endl;
     std::cin >> id;
     listaFilmes.erase(std::remove(listaFilmes.begin(), listaFilmes.end(), Filme(id)));
 }
 
 void Filme::alterarFilme() {
     visualizarFilme();
-    string nomeFilme;
+    int id;
 
-    std::cout << "Informe o Titulo do Filme que Deseja Alterar" << std::endl;
-    cin >> nomeFilme;
+    std::cout << "Informe o Id do Filme que Deseja Alterar" << std::endl;
+    std::cin >> id;
 
     for (auto &itemLista: listaFilmes) {
-        if (itemLista.titulo == nomeFilme) {
+        if (itemLista.id == id) {
             std::cout << "Digite Titulo do Filme" << std::endl;
             std::cin >> itemLista.titulo;
             std::cout << "Digite Genero do Filme" << std::endl;

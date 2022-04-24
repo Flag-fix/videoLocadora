@@ -7,7 +7,6 @@
 #include <iostream>
 #include <list>
 
-
 class Filme{
 private:
     int id;
@@ -37,6 +36,6 @@ public:
 };
 
 extern std::list<Filme> listaFilmes;
-
+extern int idCount;
 
 #endif //VIDEOLOCADORA_FILME_H
