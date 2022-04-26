@@ -37,6 +37,7 @@ public:
     static void alterarFilme();
     static void deletarFilme();
     static void visualizarFilme();
+    static void visualizarFilmesNaoLocados();
     static Filme *getFilmeById();
     static Filme *getFilmeById(int id);
 };

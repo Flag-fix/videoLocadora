@@ -63,8 +63,7 @@ void Locado::cadastrarLocado() {
         Cliente::visualizarCliente();
         cliente =  Cliente::getClienteById();
 
-        // TODO: criar metodo para buscar apenas filmes com atributo filmeLocado = false
-        Filme::visualizarFilme();
+        Filme::visualizarFilmesNaoLocados();
         filme =  Filme::getFilmeById();
 
         Locado loc = Locado(filme, cliente);
@@ -97,9 +96,8 @@ void Locado::devolverLocado() {
     }
 }
 
-// TODO: criar metodo para buscar apenas filmes com atributo filmeLocado = false
 void Locado::visualizarNaoLocados() {
-
+    Filme::visualizarFilmesNaoLocados();
 }
 
 void Locado::visualizarLocados() {

@@ -148,3 +148,14 @@ std::string Filme::getTitulo() {
 double Filme::getValorLocacao() {
     return valorLocacao;
 }
+
+void Filme::visualizarFilmesNaoLocados() {
+    for (auto &itemLista: listaFilmes) {
+        if (!itemLista.filmeLocado) {
+            std::cout << "Id: " << itemLista.id << std::endl;
+            std::cout << "Titulo: " << itemLista.titulo << std::endl;
+            std::cout << "Genero: " << itemLista.genero << std::endl;
+            std::cout << "Valor de Locacao R$ " << itemLista.valorLocacao << std::endl;
+        }
+    }
+}
